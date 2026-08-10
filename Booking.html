@@ -1,0 +1,311 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <html lang="en-UK">
+        <meta charset="UTF-8">
+        <meta viewport="width-deice-width">
+
+        <link rel="stylesheet" href="Booking.css">
+
+        <script src="Booking.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    </head>
+
+    <body class="background">
+
+        <h1 class="BookLesson">Book your lesson here!</h1>
+        <a href="About.html"><Button class="BackToPage">Back to Previous Page</Button></a>
+
+        <div class="ChooseSession">
+            <p class="text">
+                Would you prefer to have your Personal Training session In-Person or Online?
+                <!-- the onchange will actiate the JS function-->
+                <select name="sessionType" class="sessionType" id="typeOfSession" onchange="SessionType(); RevealPlatformList();">
+                    <option value="InPerson" id="InPerson">In-Person</option>
+                    <option value="Online" id="Online">Online</option>
+                </select>
+            </p>
+        </div>
+
+        <div class="OnlineLessonPlatform" id="PlatformOnlineLesson">
+            <p class="text">
+                What platform would you like to use for your online lesson? (Please select one option)
+                <br>
+                <input type="radio" name="platform" class="platform" id="Zoom" value="Zoom" onchange="OnlinePlatformChoice()" /> Zoom
+                <br>
+                <input type="radio" name="platform" class="platform" id="MicrosoftTeams" value="Microsoft Teams" onchange="OnlinePlatformChoice()" /> Microsoft Teams
+                <br>
+                <input type="radio" name="platform" class="platform" id="GoogleMeet" value="Google Meet" onchange="OnlinePlatformChoice()" /> Google Meet
+                <br>
+            </p>
+        </div>
+
+        <div class="LessonDate">
+            <p class="text">
+                Select a date for your lesson:
+
+                <input type="date" id="lessonDate" name="Date of lesson">
+            </p>
+        </div>
+
+        <div class="LessonStartTime">
+            <p class="text">
+                Select a start time for your lesson:
+
+                <input type="time" id="lessonTime" name="Time of lesson" onchange="SessionStartTime(); SessionTotalTime();">
+            </p>
+        </div>
+
+        <div class="LessonDuration">
+            <p class="text">
+                Select the length of time for your lesson:
+
+                <select name="lessonLength" class="lessonLength" id="lessonLength" onchange="SessionLength(); SessionTotalTime();">
+                    <option value="30" id="ThirtyMins">30 minutes</option>
+                    <option value="45" id="FortyFiveMins">45 minutes</option>
+                    <option value="60" id="OneHour">1 hour</option>
+                    <option value="90" id="OneHourNinetyMinutes">1 hour 30 minutes</option>
+                    <option value="120" id="TwoHours">2 hours</option>
+                </select>
+            </p>
+        </div>
+
+        <div class="ExerciseType">
+            <p class="text">
+                What body part(s) would you like to focus on during your lesson? (Please select all that apply)
+            <div class="BodyPartSelection" id="exerciseOptions">
+                <br>
+                <input type="checkbox" name="gender" class="bodyPart" /> Chest
+                <br>
+                <input type="checkbox" name="gender" class="bodyPart" /> Back
+                <br>
+                <input type="checkbox" name="gender" class="bodyPart" /> Legs
+                <br>
+                <input type="checkbox" name="gender" class="bodyPart" /> Arms
+                <br>
+            </div>
+            </p>
+        </div>
+
+        <div class="EnterEmailAddress">
+            <p class="text">
+                Enter your email address below if you would like to receive a confirmation email of your booking
+                (Optional)
+
+                <input type="email" id="email" name="emailAddress" pleaseholder="example@mail.com"></input>
+            </p>
+        </div>
+
+        <div class="BookingSummary">
+            <p class="text" id="time"></p>
+            <p class="text" id="place"></p>
+        </div>
+
+        <button class="Confirm" id="confirmButtton" onclick="SendBookingNote()">Confirm your booking</button>
+
+        <!-- When confirm button is clicked on, will send you a note with the booking details, alongside an email-->
+
+    </body>
+
+    <script>
+
+        const GYM_ADDRESS = "61 Fairhill Rd, Cookstown";
+        const TRAINER_EMAIL = "MckinlessMaxPerformanceDemoEmail@gmail.com";
+
+        // default session type is 'InPerson'
+        let selectedSessionType = "InPerson";
+        let selectedPlatform = "";
+        let selectedStartTime = "";
+        let selectedDurationMinutes = 30;
+        let sessionTimeRange = "";
+        let sessionLocationText = "";
+        let meetingCode = "";
+
+        function SessionType() {
+            selectedSessionType = document.getElementById("typeOfSession").value;
+            console.log(`The session type is: '${selectedSessionType}'`);
+            if (selectedSessionType !== "Online") {
+                selectedPlatform = "";
+                document.querySelectorAll('input[name="platform"]').forEach(function (radio) {
+                    radio.checked = false;
+                });
+            }
+            SessionLocation();
+        }
+
+        function RevealPlatformList() {
+            if (document.getElementById("typeOfSession").value === "Online") {
+                document.getElementById("PlatformOnlineLesson").style.display = "block";
+            } else {
+                document.getElementById("PlatformOnlineLesson").style.display = "none";
+            }
+        }
+
+        function OnlinePlatformChoice() {
+            const chosen = document.querySelector('input[name="platform"]:checked');
+            selectedPlatform = chosen ? chosen.value : "";
+            meetingCode = "";
+            SessionLocation();
+        }
+
+        function SessionStartTime() {
+            selectedStartTime = document.getElementById("lessonTime").value;
+        }
+
+        function SessionLength() {
+            selectedDurationMinutes = parseInt(document.getElementById("lessonLength").value, 10);
+        }
+
+        function addMinutesToTime(timeStr, minutesToAdd) {
+            const parts = timeStr.split(":");
+            const hours = parseInt(parts[0], 10);
+            const mins = parseInt(parts[1], 10);
+            const totalMinutes = hours * 60 + mins + minutesToAdd;
+            const endHours = Math.floor(totalMinutes / 60) % 24;
+            const endMins = totalMinutes % 60;
+            return String(endHours).padStart(2, "0") + ":" + String(endMins).padStart(2, "0");
+        }
+
+        function SessionTotalTime() {
+            SessionStartTime();
+            SessionLength();
+
+            if (!selectedStartTime) {
+                sessionTimeRange = "";
+                document.getElementById("time").textContent = "";
+                return sessionTimeRange;
+            }
+
+            const endTime = addMinutesToTime(selectedStartTime, selectedDurationMinutes);
+            sessionTimeRange = selectedStartTime + " - " + endTime;
+            document.getElementById("time").textContent = "Session time: " + sessionTimeRange;
+            return sessionTimeRange;
+        }
+
+        function randomDigits(count) {
+            let digits = "";
+            for (let i = 0; i < count; i++) {
+                digits += Math.floor(Math.random() * 10);
+            }
+            return digits;
+        }
+
+        function randomLetters(count) {
+            const letters = "abcdefghijklmnopqrstuvwxyz";
+            let result = "";
+            for (let i = 0; i < count; i++) {
+                result += letters.charAt(Math.floor(Math.random() * letters.length));
+            }
+            return result;
+        }
+
+        function generateMeetingCode(platformName) {
+            if (platformName === "Zoom") {
+                const length = 9 + Math.floor(Math.random() * 3);
+                const digits = randomDigits(length);
+                if (length === 9) {
+                    return digits.slice(0, 3) + " " + digits.slice(3, 6) + " " + digits.slice(6);
+                }
+                if (length === 10) {
+                    return digits.slice(0, 3) + " " + digits.slice(3, 6) + " " + digits.slice(6);
+                }
+                return digits.slice(0, 3) + " " + digits.slice(3, 7) + " " + digits.slice(7);
+            }
+            if (platformName === "Microsoft Teams") {
+                const length = 9 + Math.floor(Math.random() * 4);
+                return randomDigits(length);
+            }
+            if (platformName === "Google Meet") {
+                return randomLetters(3) + "-" + randomLetters(4) + "-" + randomLetters(3);
+            }
+            return randomDigits(10);
+        }
+
+        function SessionLocation() {
+            if (selectedSessionType === "InPerson") {
+                sessionLocationText = "In-Person at " + GYM_ADDRESS;
+                meetingCode = "";
+            } else {
+                if (!selectedPlatform) {
+                    sessionLocationText = "Online (select a meeting platform)";
+                    meetingCode = "";
+                } else {
+                    if (!meetingCode) {
+                        meetingCode = generateMeetingCode(selectedPlatform);
+                    }
+                    sessionLocationText = "Online via " + selectedPlatform + " (meeting code: " + meetingCode + ")";
+                }
+            }
+
+            document.getElementById("place").textContent = "Location: " + sessionLocationText;
+            return sessionLocationText;
+            console.log(`Session Location details: '${sessionLocationText}'`)
+        }
+
+        function getSelectedBodyParts() {
+            const parts = [];
+            document.querySelectorAll("#exerciseOptions input.bodyPart").forEach(function (checkbox) {
+                if (checkbox.checked && checkbox.nextSibling) {
+                    parts.push(checkbox.nextSibling.textContent.trim());
+                }
+            });
+            return parts.length ? parts.join(", ") : "Not specified";
+            console.log(`The user selected the following body parts: '${parts.join(", ")}'`);
+        }
+
+        function formatSessionTypeLabel() {
+            return selectedSessionType === "Online" ? "Online" : "In-Person";
+            console.log(`The selected session type is: '${selectedSessionType}'`);
+        }
+
+        function buildBookingDetailsText() {
+            SessionType();
+            OnlinePlatformChoice();
+            SessionTotalTime();
+            SessionLocation();
+
+            const lessonDate = document.getElementById("lessonDate").value || "Not specified";
+
+            return (
+                "Here are the booking details for your upcoming Personal Training session:\n\n" +
+                "Date: " + lessonDate + "\n" +
+                "Time: " + (sessionTimeRange || "Not specified") + "\n" +
+                "Duration: " + selectedDurationMinutes + " minutes\n" +
+                "Session type: " + formatSessionTypeLabel() + "\n" +
+                "Location: " + sessionLocationText + "\n" +
+                "Focus areas: " + getSelectedBodyParts() + "\n"
+            );
+        }
+
+        function SendBookingNote() {
+            const lessonDate = document.getElementById("lessonDate").value;
+            const lessonTime = document.getElementById("lessonTime").value;
+
+            if (!lessonDate || !lessonTime) {
+                alert("Please select a date and start time before confirming your booking.");
+                return;
+            }
+
+            if (selectedSessionType === "Online" && !selectedPlatform) {
+                alert("Please select an online meeting platform.");
+                return;
+            }
+
+            const bookingNoteText = buildBookingDetailsText();
+            const blob = new Blob([bookingNoteText], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "BookingDetails_" + lessonDate + "_" + lessonTime.replace(":", "") + ".txt";
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        SessionType();
+        RevealPlatformList();
+        SessionLength();
+
+    </script>
+
+    </html>

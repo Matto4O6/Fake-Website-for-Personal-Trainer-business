@@ -1,0 +1,179 @@
+/* body CSS for the page background */
+
+.background {
+    background-image: linear-gradient(to bottom, #0335ff, #e6e6e6);
+}
+
+/* CSS for the navigation bar which is similar to my other webpages */
+
+.navigation {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    float: left;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    width: 1330px;
+    text-align: center;
+    padding: 12px 14px;
+    overflow: hidden;
+    background-color: #e9e9e9;
+    margin-left: 8ch;
+    height: 260px;
+    position: relative;
+    top: -10px;
+}
+
+.HomePage {
+    font-size: 40px;
+    background-color: #0335ff;
+    color: black;
+    font-style: bold;
+    margin-right: 20px;
+    top: -50px;
+    position: relative;
+}
+
+.HomePage:hover {
+    cursor: pointer;
+}
+
+.AboutPage {
+    font-size: 40px;
+    background-color: #d50000;
+    color: black;
+    font-style: bold;
+    margin-left: 20px;
+    position: relative;
+    top: -50px;
+}
+
+.AboutPage:hover {
+    cursor: pointer;
+}
+
+.ContactPage {
+    font-size: 40px;
+    background-color: #FFEB3B;
+    color: black;
+    font-style: bold;
+    margin-left: 40px;
+    position: relative;
+    top: -50px;
+}
+
+.ContactPage:hover {
+    cursor: pointer;
+}
+
+.logo1 {
+    right: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.logo2 {
+    left: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.dateandtime {
+    position: relative;
+    top: -30px;
+}
+
+.welcome {
+    text-align: center;
+    color: white;
+}
+
+.description {
+    font-size: 20px;
+    color: white;
+    width: 1200px;
+    text-align: center;
+    position: relative;
+    left: 9ch;
+    padding: 20px;
+    top: 2ch;
+}
+
+.ClickSearch {
+    color: white;
+    font-size: larger;
+    width: 670px;
+    text-align: center;
+    position: relative;
+    left: 76ch;
+    top: 1ch;
+}
+
+.exercise-search {
+    width: 610px;
+    background: silver;
+    margin: 0px auto 0;
+    border-radius: 5px;
+    position: relative;
+    left: 40ch;
+    top: 1ch;
+    height: 400px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    /* left: -1ch; */
+}
+
+.result-box {
+    font-size: 25px;
+    text-align: center;
+}
+
+.ClickMap {
+    color: white;
+    font-size: larger;
+    width: 670px;
+    text-align: center;
+    position: relative;
+    left: 0ch;
+    top: -51ch;
+}
+
+.Map {
+    height: 500px;
+    width: 670px;
+    background-color: lightgray;
+    border-radius: 20px;
+    position: relative;
+    left: 1ch;
+    top: -60ch;
+}
+
+.MMPLocation {
+    margin-top: 40px;
+    float: left;
+    margin-left: 3ch;
+    margin-top: 4ch;
+}
+
+#exercise-button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    background-color: white;
+    height: 45px;
+    width: 60px;
+    font-size: 15px;
+}
+
+#input-box {
+    height: 40px;
+    width: 450px;
+    position: relative;
+    top: -0ch;
+    font-size: 20px;
+}

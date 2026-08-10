@@ -1,0 +1,208 @@
+/* CSS for the background */
+
+body {
+    background-image: linear-gradient(to bottom, #d50000, #c1c1c1);
+}
+
+/* Like the Home page, this is CSS for the navigation bar in AboutUs */
+
+.navigation {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    float: left;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    width: 1330px;
+    text-align: center;
+    padding: 12px 14px;
+    overflow: hidden;
+    background-color: #e9e9e9;
+    margin-left: 8ch;
+    height: 260px;
+    position: relative;
+    top: -10px;
+}
+
+.HomePage {
+    font-size: 40px;
+    background-color: #0335ff;
+    color: black;
+    font-style: bold;
+    margin-right: 20px;
+    top: -50px;
+    position: relative;
+}
+
+.AboutPage {
+    font-size: 40px;
+    background-color: #d50000;
+    color: black;
+    font-style: bold;
+    margin-left: 20px;
+    position: relative;
+    top: -50px;
+}
+
+.ContactPage {
+    font-size: 40px;
+    background-color: #FFEB3B;
+    color: black;
+    font-style: bold;
+    margin-left: 40px;
+    position: relative;
+    top: -50px;
+}
+
+.logo1 {
+    right: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.logo2 {
+    left: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.dateandtime {
+    position: relative;
+    top: -30px;
+}
+
+h1 {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.history {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.servicesHeader {
+
+text-align: center;
+}
+
+.services {
+    font-size: 20px;
+    text-align: center;
+}
+
+/* CSS properties for my table which displays the various PT lessons */
+
+#whatweoffer {
+    text-align: center;
+    /* margin-top: 0ch; */
+}
+
+#whatweoffer th,
+td {
+    border: 3px solid;
+    font-size: 20px;
+}
+
+#whatweoffer th {
+    font-size: 30px;
+}
+
+/* These properties are for the buttons onthe whatweoffer table */
+
+.bookindividual {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bookindividual:active {
+    transform: scale(98%);
+}
+
+.bookgroup {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bookgroup:active {
+    transform: scale(98%);
+}
+
+.onlineindividual {
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.onlineindividual:active {
+    transform: scale(98%);
+}
+
+.onlinegroup {
+    color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.onlinegroup:active {
+    transform: scale(98%);
+}
+
+/* CSS for the button and the images that fade in when the button is clicked */
+
+.imagebutton {
+    width: 200px;
+    height: 180px;
+    font-size: larger;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.imagebutton:active {
+    transform: translateY(5px);
+    background-color: rgb(14, 200, 14);
+}
+
+.pictures {
+    border: solid 3px black;
+    width: 1280px;
+    margin-left: 27ch;
+    margin-top: -22ch;
+    height: 172px;
+}
+
+#greengym {
+    display: none; 
+    margin-left: 100px;
+    margin-top: -20ch;
+}
+
+#sauna {
+    display: none;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+#PersonalTrainer {
+    display: none;
+    margin-left: 80px;
+}
+
+#Cookstown {
+    display: none;
+    margin-left: 80px;
+}
+
+.abovetable {
+    font-size: 24px;
+    font-style: bold;
+    padding: 12px 14px;
+    font-weight: bold;
+    position: relative;
+    margin-left: 29ch;
+    margin-top: 1ch;
+}

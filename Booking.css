@@ -1,0 +1,212 @@
+/* CSS for all the buttons on the online_booking webpage */
+
+.background {
+    background-image: linear-gradient(to right, #f2f2f2, #e6e6e6);
+}
+
+.BookLesson {
+    
+text-align: center;
+}
+
+.BackToPage {
+    
+font-size: 20px;
+    
+margin-top: -5ch;
+    
+border-radius: 20px;
+    
+height: 50px;
+}
+
+.BackToPage:hover {
+    background-color: lightgreen;
+}
+
+.BackToPage:active {
+    transform: scale(0.98);
+}
+
+.thanks{
+    font-size: 30px;
+    font-style: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#day{
+    height: 60px;
+    width: 140px;
+    color: grey;
+}
+
+#when{
+    height: 60px;
+    width: 140px;
+    color: blue;
+}
+
+#instructor{
+    height: 60px;
+    width: 140px;
+    color: green;
+}
+
+#location{
+    height: 80px;
+    width: 200px;
+    color: red;
+}
+
+.text {
+
+font-size: 20px;
+
+text-align: center;
+}
+
+/* Type of session */
+
+.ChooseSession {
+
+}
+
+.sessionType {
+
+height: 30px;
+
+width: 110px;
+
+font-size: 20px;
+}
+
+#InPerson {
+
+}
+
+#Online {
+
+}
+
+/* Platform of choice for the online lesson */
+
+.OnlineLessonPlatform {
+    display: none;
+    position: relative;
+}
+
+.platform {
+
+}
+
+/* Date of the lesson */
+
+.LessonDate {
+
+}
+
+#lessonDate {font-size: 18px;}
+
+/* Start time for the lesson */
+
+.LessonStartTime {
+
+}
+
+#lessonTime {
+    font-size: 18px;
+}
+
+/* Duration of the lesson */
+
+.LessonDuration {
+
+}
+
+.lessonLength {font-size: 18px;}
+
+#ThirtyMins {
+
+}
+
+#FortyFiveMins {
+
+}
+
+#OneHour {
+
+}
+
+#OneHourNinetyMinutes {
+
+}
+
+#TwoHours {
+
+}
+
+/* Type of exercises to focus on */
+
+.ExerciseType {
+
+}
+
+.bodyPart {
+
+}
+
+.BodyPartSelection {
+
+font-size: 20px;
+
+text-align: center;
+
+/* padding: 0pc; */
+
+margin-top: -30px;
+
+margin-bottom: -20px;
+}
+
+/* Entering the email address */
+
+.EnterEmailAddress {
+
+}
+
+#email {
+
+font-size: 20px;
+
+height: 40px;
+
+width: 300px;
+}
+
+/* Booking detail confirmation button */
+
+.Confirm {
+
+font-size: 20px;
+
+text-align: center;
+
+position: relative;
+
+left: 58ch;
+
+margin-top: 10px;
+
+border-radius: 20pc;
+
+height: 50px;
+}
+
+.Confirm:hover {
+    background-color:#bfbfbf;
+}
+
+.Confirm:active {
+    transform: scale(0.97);
+}
+

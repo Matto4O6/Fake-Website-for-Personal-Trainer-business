@@ -1,0 +1,276 @@
+/* body CSS for the page background */
+
+.background {
+    background-image: linear-gradient(to bottom, #FFEB3B, #e6e6e6);
+}
+
+/* CSS for the navigation bar which is similar to my other webpages */
+
+.navigation {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    float: left;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    width: 1330px;
+    text-align: center;
+    padding: 12px 14px;
+    overflow: hidden;
+    background-color: #e9e9e9;
+    margin-left: 8ch;
+    height: 260px;
+    position: relative;
+    top: -10px;
+}
+
+.HomePage {
+    font-size: 40px;
+    background-color: #0335ff;
+    color: black;
+    font-style: bold;
+    margin-right: 20px;
+    top: -50px;
+    position: relative;
+}
+
+.HomePage:hover {
+    cursor: pointer;
+}
+
+.AboutPage {
+    font-size: 40px;
+    background-color: #d50000;
+    color: black;
+    font-style: bold;
+    margin-left: 20px;
+    position: relative;
+    top: -50px;
+}
+
+.AboutPage:hover {
+    cursor: pointer;
+}
+
+.ContactPage {
+    font-size: 40px;
+    background-color: #FFEB3B;
+    color: black;
+    font-style: bold;
+    margin-left: 40px;
+    position: relative;
+    top: -50px;
+}
+
+.ContactPage:hover {
+    cursor: pointer;
+}
+
+.logo1 {
+    right: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.logo2 {
+    left: 130px;
+    position: relative;
+    top: 25px;
+}
+
+.dateandtime {
+    position: relative;
+    top: -30px;
+}
+
+h1 {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* All the CSS properties for the sign up form
+which outlines the size of the textboxes and the buttons as well as the colour of the button text  */
+
+.intouch {
+    font-size: 20px;
+    text-align: center;
+    width: 550px;
+    margin-left: 47ch;
+}
+
+.fields {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.textbox {
+    font-size: larger;
+    margin-left: 480px;
+    height: 40px;
+    /* text-align: center; */
+}
+
+.signup {
+    /* margin-left: 450px; */
+    font-size: 30px;
+    text-align: center;
+}
+
+.submittext {
+    font-size: 20px;
+}
+
+.resettext {
+    font-size: 20px;
+}
+
+/* CSS for the PT preference buttons which aren't linked to the sign up form */
+
+.In-Person {
+    height: 110px;
+    width: 110px;
+    font-size: larger;
+    margin-left: 510px;
+    color: red;
+    font-weight: bold;
+}
+
+.In-Person:active {
+    background-color: lightcoral;
+    transform: translateY(6px);
+}
+
+.Online {
+    height: 100px;
+    width: 100px;
+    font-size: larger;
+    margin-left: 230px;
+    color: blue;
+    font-weight: bold;
+}
+
+.Online:active {
+    background-color: cyan;
+    transform: translateY(6px);
+}
+
+.PTService {
+    margin-left: 550px;
+    font-size: large;
+}
+
+/* The CSS for the form submission buttons */
+
+.Submit {
+    font-size: larger;
+    height: 50px;
+    width: 250px;
+    margin-top: 50px;
+    margin-left: 410px;
+    color: green;
+    font-weight: bold;
+}
+
+.Submit:active {
+    background-color: lightgreen;
+    transform: scale(0.95);
+}
+
+.Undo {
+    font-size: larger;
+    height: 50px;
+    width: 250px;
+    margin-top: 50px;
+    margin-left: 150px;
+    color: red;
+    font-weight: bold;
+}
+
+.Undo:active {
+    background-color: lightcoral;
+    transform: scale(0.95);
+}
+
+/* CSS properties for Darren and the text regarding his experiecne with MMP */
+
+.Darrenexp {
+    font-weight: bold;
+    font-size: x-large;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.thoughts {
+    font-size: 18px;
+}
+
+.runningman {
+    margin-top: 10px;
+    margin-left: 0px;
+    position: relative;
+}
+
+.trackandrun {
+
+    margin-top: -50px;
+}
+
+.run {
+    margin-top: 30px;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+    /* position: relative; */
+    margin-left: 36ch;
+}
+
+.client {
+
+    font-size: 20px;
+}
+
+.selectGender {
+
+margin-left: 67ch;
+
+font-size: 21px;
+}
+
+.gender {
+    font-size: larger;
+    margin-right: 450px;
+}
+
+.genderHeader {
+
+    font-weight: bold;
+
+    font-size: 25px;
+}
+
+.sexuality {
+
+    font-size: 0px;
+
+    text-align: center;
+
+    position: relative;
+
+    margin-right: 0ch;
+}
+
+.check {
+
+    font-size: 20px;
+
+    text-align: center;
+}
+
+.checkbox {
+
+}
+
+#phone {  
+    margin-left: 62.9ch;
+}

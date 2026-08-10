@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang="en-UK">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-deice-width, inital-scale=1.0">
+
+    <link rel="stylesheet" href="Home.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="Home.js"></script>
+
+    <title> McKinless Max Perfomance - Home </title>
+</head>
+
+<body class="background">
+
+    <!--navigation bar present on the other pages-->
+    <div class="navigation">
+        <img src="Images/MMP_logo.png" height="200" width="200" class="logo1" alt="McKinless Max Performance logo">
+        <a class="HomePage" href="Home.html"> Home </a>
+        <a class="AboutPage" href="About.html"> About Us </a>
+        <a class="ContactPage" href="Contact.html"> Contact Us </a>
+        <img src="Images/MMP_logo.png" height="200" width="200" class="logo2" alt="McKinless Max Performance logo">
+        <p class="dateandtime">current date and time is: <span id="datetime"></span></p>
+    </div>
+
+    <!--brief description of the business-->
+    <h1 class="welcome"> McKinless Max Performance - Home </h3>
+
+        <p class="description"> We are a Personal Training business with the aim of making our clients fitter and
+            healthier.
+            Sessions
+            can be in person or online, and we also offer individual or group sessions depending on your preference.
+        </p>
+
+        <p class="description"> Want to see a fitter, better and stronger YOU? Then come on over to McKinless Max
+            Performance where we do out best to ensure you are better and stronger than yesterday!</p>
+
+        <p class="description">If you're interested, please go to our 'Contact Us' page and sign up to book a session
+            with
+            us! and
+            If you want to find out more about our sessions and what we're all about, head over to the 'About Us' page
+            where
+            you'll
+            learn everything you need to know!</p>
+
+
+        <!--This autucomplete search bar will allow users to search for exercises that MMP offers-->
+        <p class="ClickSearch">
+            Use this search bar to find out more about the exercises that we offer at McKinless Max Performance. We
+            offer a
+            variety of
+            exercises for any part of the body, so enter an exercise into the searcb bar to see what is on offer!
+        </p>
+
+        <div class="exercise-search">
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Search for an exercise" autocomplete="off">
+                <button id="exercise-button"> Search </button>
+            </div>
+            <div class="result-box">
+            </div>
+        </div>
+
+        <p class="ClickMap"> Click on this map to see the location of our main gym and the surrounding area! We are
+            located
+            at 61 Fairhill Rd, Cookstown, County Tyrone, Northern Ireland. </p>
+
+        <!--An interactive map highlighting the location of McKinless Max Performance as well as the rest of Cookstown-->
+        <div class="Map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2308.7258338383176!2d-6.757768823319952!3d54.644045772693985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48606101b41f31e7%3A0x702f176aac5ab1bf!2s61-57%20Fairhill%20Rd%2C%20Cookstown%20BT80%208DE!5e0!3m2!1sen!2suk!4v1714657080255!5m2!1sen!2suk"
+                width="600" height="430" class="MMPLocation" style="border:0;" allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+
+
+        <script>
+            // date and time like in the home page
+            const d = new Date();
+            document.getElementById("datetime").innerHTML = d;
+        </script>
+
+        <div id="WebCookies" style="display: none;">
+            <p>This website uses cookies to improve your experience. By continuing to use this site, you accept our
+                use of cookies.</p>
+            <button type="button" id="WebCookies-btn">Accept</button>
+        </div>
+
+</body>
+
+</html>
